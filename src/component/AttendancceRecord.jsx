@@ -15,7 +15,7 @@ const AttendanceRecords = () => {
     const fetchAttendanceRecords = async () => {
       try {
         const response = await axios.get(
-          "https://assignment-backend-5mg1xpplv-ankit-nishads-projects.vercel.app/attendance",
+          "https://assignment-backend-zeta.vercel.app/attendance",
           config
         );
         setAttendanceRecords(response.data);

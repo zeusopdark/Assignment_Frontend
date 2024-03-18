@@ -36,7 +36,7 @@ function Login() {
       const config = { headers: { "Content-Type": "application/json" } };
       const { data } = await toast.promise(
         axios.post(
-          `https://assignment-backend-5mg1xpplv-ankit-nishads-projects.vercel.app/user/login`,
+          `https://assignment-backend-zeta.vercel.app/user/login`,
           {
             email,
             password,
