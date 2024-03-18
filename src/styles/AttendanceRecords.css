@@ -25,3 +25,8 @@
 .attendance-table tr:hover {
     background-color: #ddd;
 }
+
+.table-container {
+    overflow-x: auto;
+    max-width: 100%;
+}
