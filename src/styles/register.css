@@ -1,0 +1,160 @@
+.register-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6rem;
+    box-shadow: rgba(128, 163, 201, 0.2) 0px 8px 24px;
+    padding: 0 2rem;
+}
+
+.mainLoS {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.mainLoS2 img {
+    scale: 1.1;
+}
+
+.mainLoS2 img {
+    animation: moveLeftRight 3s infinite alternate ease-in-out;
+}
+
+@keyframes moveLeftRight {
+    0% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        transform: translateX(10px);
+    }
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem;
+}
+
+.buttonLogin {
+    background-color: #ffffff00;
+    color: #0e0d0d;
+    width: 12rem;
+    height: 3.5rem;
+    border: #a9b5f8 0.2em solid;
+    border-radius: 11px;
+    text-align: right;
+    transition: all 0.2s ease;
+    margin-bottom: 1rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+}
+
+.buttonLogin:hover {
+    background-color: #3f76aa;
+    cursor: pointer;
+    color: white;
+
+}
+
+.buttonLogin svg {
+    width: 1.6em;
+    margin: -0.2em 0.8em 1em;
+    position: absolute;
+    display: flex;
+    transition: all 0.3s ease;
+}
+
+.buttonLogin .text {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.form-input,
+textarea,
+select {
+    font-size: 1rem;
+    background-color: rgb(237, 246, 248);
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    border: 1px solid rgb(9, 120, 172);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.form-input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
+input::-webkit-outer-spin-buttonLogin,
+input::-webkit-inner-spin-buttonLogin {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.file-input-label {
+    display: inline-block;
+    position: relative;
+    font-size: 1rem;
+    background-color: rgb(237, 246, 248);
+    padding: 0.8rem 1.5rem;
+    text-align: left;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-family: var(--font-family);
+    border: 1px solid rgb(9, 120, 172);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    cursor: pointer;
+    overflow: hidden;
+    color: var(--darker-blue);
+}
+
+.file-input-label input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-input-label:hover {
+    background-color: rgb(211, 228, 236);
+    color: black;
+}
+
+
+.login-link {
+    color: var(--darker-blue);
+}
+
+@media(max-width:430px) {
+    .mainLoS2 {
+        width: 100%;
+        max-width: 430px;
+
+        margin: auto;
+    }
+
+    .mainLoS2 img {
+        width: 100%;
+
+        height: auto;
+    }
+
+    .register-section {
+        flex-direction: column;
+        gap: 2rem;
+        width: 100%;
+        margin: auto;
+    }
+}

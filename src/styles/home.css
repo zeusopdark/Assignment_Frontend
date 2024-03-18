@@ -1,0 +1,143 @@
+#hero {
+    height: 60vh;
+    background-color: #f5f7fb;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+#hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(73, 73, 238, 0.5), transparent 50%, transparent);
+    background-position: center;
+    background-size: cover;
+    object-fit: contain;
+    object-position: top;
+    opacity: 0.5;
+    z-index: 0;
+
+}
+
+.hero-content {
+    max-width: 1200px;
+    width: 90%;
+    margin: 0px auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: flex-start;
+    margin-top: auto;
+    z-index: 1;
+}
+
+.hero-img {
+    display: flex;
+}
+
+.hero-img img {
+    width: 100%;
+    height: 100%;
+    max-height: 450px;
+    object-fit: contain;
+    object-position: center bottom;
+}
+
+.hero-img img {
+    animation: moveLeftRight 3s infinite alternate ease-in-out;
+}
+
+@keyframes moveLeftRight {
+    0% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        transform: translateX(10px);
+    }
+}
+
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.hero-text h1 {
+    font-size: 3.2rem;
+    color: #1a1f29;
+    line-height: 3.6rem;
+}
+
+.hero-text p {
+    color: #0e0e0e;
+    margin: 15px 0px;
+    max-width: 500px;
+    letter-spacing: 0.3px;
+    line-height: 1.8rem;
+}
+
+.hero-text-btns {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.hero-text-btns a {
+    height: 45px;
+    padding: 0px 15px;
+    background-color: #122853;
+    color: #ffffff;
+    border-radius: 4px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    border: 1px solid black;
+    font-weight: 500;
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-text-btns a:hover {
+    background-color: white;
+    color: blue;
+    border: 1.2px solid rgb(60, 177, 255);
+}
+
+.hero-text-btns a i {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #014dd5;
+    margin-right: 8px;
+    color: #ffffff;
+    font-size: 0.5rem;
+    padding-bottom: 1px;
+}
+
+@media(max-width:1050px) {
+    .hero-content {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        margin: 50px auto;
+    }
+
+    .hero-text {
+        margin-bottom: 40px;
+        background-color: #ffffff;
+        padding: 30px;
+        margin-top: 0px;
+    }
+}

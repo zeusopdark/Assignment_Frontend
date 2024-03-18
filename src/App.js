@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Register from './component/Register'
+import Login from './component/Login'
+import Home from './component/Home';
+import Calender from "./component/Calender"
+import AttendancceRecord from "./component/AttendancceRecord"
+import Navbar from './component/Navbar';
+import PrivateRoute from "./component/ProtectedRoute"
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/records" element={<AttendancceRecord />} />
+          <Route path="/calendar" element={<Calender />} />
+        </Route>
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+export default App
