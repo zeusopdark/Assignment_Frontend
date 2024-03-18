@@ -51,7 +51,7 @@ nav {
 .menu-open,
 .menu-close {
     position: absolute;
-    color: black;
+    color: rgb(211, 20, 20);
     cursor: pointer;
 }
 
