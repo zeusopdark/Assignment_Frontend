@@ -36,7 +36,7 @@ function Register() {
 
       await toast.promise(
         axios.post(
-          `https://assignment-backend-two.vercel.app/user/register`,
+          `https://assignment-backend-5mg1xpplv-ankit-nishads-projects.vercel.app/user/register`,
           {
             name,
             email,

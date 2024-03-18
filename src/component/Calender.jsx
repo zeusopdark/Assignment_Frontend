@@ -21,7 +21,7 @@ const CalendarView = () => {
       };
       try {
         const response = await axios.get(
-          "https://assignment-backend-two.vercel.app/attendance",
+          "https://assignment-backend-5mg1xpplv-ankit-nishads-projects.vercel.app/attendance",
           config
         );
         const markedDates = response.data.map(
