@@ -34,7 +34,7 @@ nav {
 }
 
 .nav-links .btn {
-    color: white;
+    color: black;
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
     cursor: pointer;
@@ -78,8 +78,12 @@ nav {
         z-index: 20;
         gap: 3rem;
         transition: all 0.3s linear;
+        color: rgb(245, 245, 245);
+        background-color: rgba(8, 8, 8, 0.808);
+    }
+
+    .nav-links .btn {
         color: white;
-        background-color: rgba(31, 29, 29, 0.644);
     }
 
     .nav-active .nav-links {
