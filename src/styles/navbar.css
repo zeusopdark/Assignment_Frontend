@@ -25,7 +25,7 @@ nav {
 
 .nav-logo a,
 .nav-links a {
-    color: var(--bold-text-color);
+    color: black;
 }
 
 .nav-links {
@@ -34,7 +34,7 @@ nav {
 }
 
 .nav-links .btn {
-    color: var(--white);
+    color: white;
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
     cursor: pointer;
@@ -51,7 +51,7 @@ nav {
 .menu-open,
 .menu-close {
     position: absolute;
-    color: var(--black);
+    color: black;
     cursor: pointer;
 }
 
@@ -69,7 +69,7 @@ nav {
         left: 0%;
         width: 100vw;
         height: 100vh;
-        background-color: var(--light-blue);
+        background-color: lightblue;
         flex-direction: column;
         transform: translateX(100%);
         justify-content: center;
@@ -79,7 +79,7 @@ nav {
         gap: 3rem;
         transition: all 0.3s linear;
         color: white;
-        background-color: rgba(75, 70, 70, 0.644);
+        background-color: rgba(31, 29, 29, 0.644);
     }
 
     .nav-active .nav-links {
