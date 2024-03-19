@@ -11,7 +11,14 @@ const CalendarView = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [markedDates, setMarkedDates] = useState([]);
   const data = useSelector((store) => store.root);
-  const token = document.cookie.split(";")[0].split("=")[1];
+  const getCookie = async () => {
+    const response = await axios.get(`${url}/api/user/getcookie`);
+    console.log(response);
+    return response;
+  };
+  const data2 = getCookie();
+
+  const token = data2;
 
   useEffect(() => {
     const fetchMarkedDates = async () => {

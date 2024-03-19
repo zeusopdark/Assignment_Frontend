@@ -10,7 +10,14 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const [iconActive, setIconActive] = useState(false);
   const navigate = useNavigate();
-  const token = document.cookie.split(";")[0].split("=")[1];
+  const getCookie = async () => {
+    const response = await axios.get(`${url}/api/user/getcookie`);
+    console.log(response);
+    return response;
+  };
+  const data = getCookie();
+
+  const token = data;
 
   const logoutFunc = async () => {
     await axios.get(`${url}/api/user/logout`, {
