@@ -4,25 +4,18 @@ import { FiLogOut, FiMenu } from "react-icons/fi";
 import "../styles/navbar.css";
 import { useDispatch } from "react-redux";
 import { setUserInfo } from "../redux/reducers/rootSlice";
-import axios from "axios";
+
+// const url = "http://localhost:8000";
 const url = "https://assignment-backend-zeta.vercel.app";
+
 const Navbar = () => {
   const dispatch = useDispatch();
   const [iconActive, setIconActive] = useState(false);
   const navigate = useNavigate();
-  const getCookie = async () => {
-    const response = await axios.get(`${url}/api/user/getcookie`);
-    console.log(response.token);
-    return response.token;
-  };
-  const data = getCookie();
-
-  const token = data;
+  const token = localStorage.getItem("token");
 
   const logoutFunc = async () => {
-    await axios.get(`${url}/api/user/logout`, {
-      withCredentials: true,
-    });
+    localStorage.removeItem("token");
     dispatch(setUserInfo(null));
     navigate("/login");
   };
@@ -34,7 +27,7 @@ const Navbar = () => {
           <NavLink to={"/"}>Attendance</NavLink>
         </h2>
         <ul className="nav-links">
-          {token === undefined ? (
+          {!token ? (
             <>
               <li>
                 <NavLink className="btn" to={"/"}>

@@ -6,19 +6,13 @@ import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import "../styles/CalendarView.css";
 const url = "https://assignment-backend-zeta.vercel.app";
+// const url = "http://localhost:8000";
 
 const CalendarView = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [markedDates, setMarkedDates] = useState([]);
   const data = useSelector((store) => store.root);
-  const getCookie = async () => {
-    const response = await axios.get(`${url}/api/user/getcookie`);
-    console.log(response.token);
-    return response.token;
-  };
-  const data2 = getCookie();
-
-  const token = data2;
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     const fetchMarkedDates = async () => {

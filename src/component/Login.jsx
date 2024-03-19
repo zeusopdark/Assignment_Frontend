@@ -7,6 +7,7 @@ import "../styles/register.css";
 import { useDispatch } from "react-redux";
 import { setUserInfo } from "../redux/reducers/rootSlice";
 const url = "https://assignment-backend-zeta.vercel.app";
+// const url = "http://localhost:8000";
 
 function Login() {
   const alreadyLoggedIn = localStorage.getItem("token");
@@ -52,6 +53,7 @@ function Login() {
           loading: "Logging user...",
         }
       );
+      localStorage.setItem("token", data.token);
       dispatch(setUserInfo(data.rest));
       navigate("/");
     } catch (error) {

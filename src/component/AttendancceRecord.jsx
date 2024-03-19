@@ -2,26 +2,22 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import "../styles/AttendanceRecords.css";
+
+// const url = "http://localhost:8000";
 const url = "https://assignment-backend-zeta.vercel.app";
+
 const AttendanceRecords = () => {
   const [attendanceRecords, setAttendanceRecords] = useState([]);
-  const getCookie = async () => {
-    const response = await axios.get(`${url}/api/user/getcookie`);
-    console.log(response.token);
-    return response.token;
-  };
-  const data = getCookie();
 
-  const token = data;
-
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
   useEffect(() => {
-    const fetchAttendanceRecords = async () => {
+    const fetchData = async () => {
       try {
+        const token = localStorage.getItem("token");
+        const config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
         const response = await axios.get(`${url}/attendance`, config);
         setAttendanceRecords(response.data);
       } catch (error) {
@@ -30,7 +26,7 @@ const AttendanceRecords = () => {
       }
     };
 
-    fetchAttendanceRecords();
+    fetchData();
   }, []);
 
   return (

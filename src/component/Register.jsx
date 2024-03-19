@@ -4,6 +4,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import logDoc from "./logDoc.png";
 const url = "https://assignment-backend-zeta.vercel.app";
+// const url = "http://localhost:8000";
+
 function Register() {
   const [formDetails, setFormDetails] = useState({
     name: "",
