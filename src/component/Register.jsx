@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 import logDoc from "./logDoc.png";
-
+const url = "https://assignment-backend-zeta.vercel.app";
 function Register() {
   const [formDetails, setFormDetails] = useState({
     name: "",
@@ -36,7 +36,7 @@ function Register() {
 
       await toast.promise(
         axios.post(
-          `https://assignment-backend-zeta.vercel.app/api/user/register`,
+          `${url}/api/user/register`,
           {
             name,
             email,

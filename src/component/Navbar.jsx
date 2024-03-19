@@ -4,14 +4,18 @@ import { FiLogOut, FiMenu } from "react-icons/fi";
 import "../styles/navbar.css";
 import { useDispatch } from "react-redux";
 import { setUserInfo } from "../redux/reducers/rootSlice";
+import axios from "axios";
+const url = "https://assignment-backend-zeta.vercel.app";
 const Navbar = () => {
   const dispatch = useDispatch();
   const [iconActive, setIconActive] = useState(false);
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+  const token = document.cookie.split(";")[0].split("=")[1];
 
-  const logoutFunc = () => {
-    localStorage.removeItem("token");
+  const logoutFunc = async () => {
+    await axios.get(`${url}/api/user/logout`, {
+      withCredentials: true,
+    });
     dispatch(setUserInfo(null));
     navigate("/login");
   };
@@ -49,10 +53,14 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to={"/records"}>Attendance Record</NavLink>
+                <NavLink style={{ color: "white" }} to={"/records"}>
+                  Attendance Record
+                </NavLink>
               </li>
               <li>
-                <NavLink to={"/calendar"}>Mark Attendance</NavLink>
+                <NavLink style={{ color: "white" }} to={"/calendar"}>
+                  Mark Attendance
+                </NavLink>
               </li>
               <li>
                 <span className="btn" onClick={logoutFunc}>

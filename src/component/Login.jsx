@@ -4,8 +4,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import logDoc from "./logDoc.png";
 import "../styles/register.css";
-import { useDispatch, useSelector } from "react-redux";
-import { setLoading, setUserInfo } from "../redux/reducers/rootSlice";
+import { useDispatch } from "react-redux";
+import { setUserInfo } from "../redux/reducers/rootSlice";
+const url = "https://assignment-backend-zeta.vercel.app";
+
 function Login() {
   const alreadyLoggedIn = localStorage.getItem("token");
   const navigate = useNavigate();
@@ -33,15 +35,15 @@ function Login() {
       } else if (password.length < 5) {
         return toast.error("Password must be at least 5 characters long");
       }
-      const config = { headers: { "Content-Type": "application/json" } };
       const { data } = await toast.promise(
         axios.post(
-          `https://assignment-backend-zeta.vercel.app/api/user/login`,
+          `${url}/api/user/login`,
           {
             email,
             password,
           },
-          config
+
+          { withCredentials: true }
         ),
         {
           pending: "Logging in...",
@@ -50,7 +52,6 @@ function Login() {
           loading: "Logging user...",
         }
       );
-      localStorage.setItem("token", data.token);
       dispatch(setUserInfo(data.rest));
       navigate("/");
     } catch (error) {

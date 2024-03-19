@@ -5,25 +5,23 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import "../styles/CalendarView.css";
+const url = "https://assignment-backend-zeta.vercel.app";
 
 const CalendarView = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [markedDates, setMarkedDates] = useState([]);
   const data = useSelector((store) => store.root);
+  const token = document.cookie.split(";")[0].split("=")[1];
 
   useEffect(() => {
     const fetchMarkedDates = async () => {
-      const token = localStorage.getItem("token");
       const config = {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       };
       try {
-        const response = await axios.get(
-          "https://assignment-backend-zeta.vercel.app/attendance",
-          config
-        );
+        const response = await axios.get(`${url}/attendance`, config);
         const markedDates = response.data.map(
           (attendance) => new Date(attendance.date)
         );
@@ -37,7 +35,6 @@ const CalendarView = () => {
   }, []);
 
   const markAttendance = async () => {
-    const token = localStorage.getItem("token");
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +44,7 @@ const CalendarView = () => {
     try {
       await toast.promise(
         axios.post(
-          "https://assignment-backend-zeta.vercel.app/attendance",
+          `${url}/attendance`,
           {
             date: selectedDate,
             personId: data.userInfo._id,

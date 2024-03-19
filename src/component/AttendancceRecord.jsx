@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import "../styles/AttendanceRecords.css";
-
+const url = "https://assignment-backend-zeta.vercel.app";
 const AttendanceRecords = () => {
   const [attendanceRecords, setAttendanceRecords] = useState([]);
-  const token = localStorage.getItem("token");
+  const token = document.cookie.split(";")[0].split("=")[1];
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -14,10 +14,7 @@ const AttendanceRecords = () => {
   useEffect(() => {
     const fetchAttendanceRecords = async () => {
       try {
-        const response = await axios.get(
-          "https://assignment-backend-zeta.vercel.app/attendance",
-          config
-        );
+        const response = await axios.get(`${url}/attendance`, config);
         setAttendanceRecords(response.data);
       } catch (error) {
         console.error("Error fetching attendance records:", error);
