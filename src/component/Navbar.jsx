@@ -34,7 +34,7 @@ const Navbar = () => {
           <NavLink to={"/"}>Attendance</NavLink>
         </h2>
         <ul className="nav-links">
-          {!token ? (
+          {token === undefined ? (
             <>
               <li>
                 <NavLink className="btn" to={"/"}>
