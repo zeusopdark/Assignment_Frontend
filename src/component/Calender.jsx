@@ -47,7 +47,7 @@ const CalendarView = () => {
     try {
       await toast.promise(
         axios.post(
-          "http://localhost:8000/attendance",
+          "https://assignment-backend-zeta.vercel.app/attendance",
           {
             date: selectedDate,
             personId: data.userInfo._id,
