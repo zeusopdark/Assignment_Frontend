@@ -7,8 +7,8 @@ const AttendanceRecords = () => {
   const [attendanceRecords, setAttendanceRecords] = useState([]);
   const getCookie = async () => {
     const response = await axios.get(`${url}/api/user/getcookie`);
-    console.log(response);
-    return response;
+    console.log(response.token);
+    return response.token;
   };
   const data = getCookie();
 
