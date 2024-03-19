@@ -5,7 +5,15 @@ import "../styles/AttendanceRecords.css";
 const url = "https://assignment-backend-zeta.vercel.app";
 const AttendanceRecords = () => {
   const [attendanceRecords, setAttendanceRecords] = useState([]);
-  const token = document.cookie.split(";")[0].split("=")[1];
+  const getCookie = async () => {
+    const response = await axios.get(`${url}/api/user/getcookie`);
+    console.log(response);
+    return response;
+  };
+  const data = getCookie();
+
+  const token = data;
+
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
